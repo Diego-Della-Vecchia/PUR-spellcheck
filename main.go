@@ -13,6 +13,8 @@ func main() {
 
 	var string2 string = strings[1]
 
+	fmt.Println(lev.Iterative(string1, string2))
+
 	fmt.Println(lev.Recursive(string1, string2))
 
 }
