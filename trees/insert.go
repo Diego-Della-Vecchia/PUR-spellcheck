@@ -4,7 +4,7 @@ import (
 	"spellcheck/lev"
 )
 
-func (tree *tree) Insert(node *node) {
+func (tree *tree) Insert(node *Node) {
 	if tree.Root == nil {
 		tree.Root = node
 		return

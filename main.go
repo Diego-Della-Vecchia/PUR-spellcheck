@@ -2,19 +2,21 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"spellcheck/lev"
+	"spellcheck/trees"
 )
 
 func main() {
-	strings := os.Args[1:]
 
-	var string1 string = strings[0]
+	t := trees.Init(&trees.Node{Value: "book", Children: make(map[int]*trees.Node)})
+	t.Insert(&trees.Node{Value: "book", Children: make(map[int]*trees.Node)})
+	t.Insert(&trees.Node{Value: "books", Children: make(map[int]*trees.Node)})
+	t.Insert(&trees.Node{Value: "back", Children: make(map[int]*trees.Node)})
+	t.Insert(&trees.Node{Value: "boon", Children: make(map[int]*trees.Node)})
+	t.Insert(&trees.Node{Value: "Hallo", Children: make(map[int]*trees.Node)})
 
-	var string2 string = strings[1]
+	results := t.Lookup("book", 1)
 
-	fmt.Println(lev.Iterative(string1, string2))
+	fmt.Println(results)
 
-	fmt.Println(lev.Recursive(string1, string2))
-
+	fmt.Println()
 }

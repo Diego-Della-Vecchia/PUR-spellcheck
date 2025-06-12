@@ -1,8 +1,8 @@
 package trees
 
-func Init(root node) tree {
+func Init(root *Node) tree {
 	tree := tree{
-		Root: &root,
+		Root: root,
 	}
 
 	return tree

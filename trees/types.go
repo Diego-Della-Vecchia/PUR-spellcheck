@@ -2,10 +2,10 @@ package trees
 
 //This file defines the types used in the trees package.
 
-type node struct {
+type Node struct {
 	Value    string
-	Children map[int]*node
+	Children map[int]*Node
 }
 type tree struct {
-	Root *node
+	Root *Node
 }
