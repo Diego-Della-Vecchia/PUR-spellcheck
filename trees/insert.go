@@ -29,3 +29,12 @@ func (tree *tree) Insert(node *Node) {
 	}
 
 }
+
+func (t *tree) InsertList(nodes []string) {
+	for _, node := range nodes {
+		t.Insert(&Node{
+			Value:    node,
+			Children: make(map[int]*Node),
+		})
+	}
+}
