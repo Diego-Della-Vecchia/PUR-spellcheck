@@ -11,12 +11,11 @@ func (t *tree) Lookup(query string, maxDistance int) []string {
 	var search func(n *Node)
 
 	search = func(n *Node) {
-		distance := lev.Iterative(n.Value, query)
+		distance, _ := lev.Iterative(n.Value, query)
 		if distance <= maxDistance {
 			results = append(results, n.Value)
 		}
 
-		// Search in range [distance - maxDistance, distance + maxDistance]
 		for d, child := range n.Children {
 			if d >= distance-maxDistance && d <= distance+maxDistance {
 				search(child)
