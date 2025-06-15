@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"spellcheck/trees"
+	"time"
 )
 
 func main() {
@@ -26,11 +27,17 @@ func main() {
 	tree.InsertList(words[1:])
 	fmt.Println("Wörter in Baum eingefügt:", len(words))
 
-	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("Geben Sie ein Wort ein:")
+	reader := bufio.NewReader(os.Stdin)
 	input, _ := reader.ReadString('\n')
 	fmt.Println("Eingegebenes Wort:", input)
-	fmt.Println("Ähnliche Wörter:", tree.Lookup(input, 2))
+	results := tree.Lookup(input, 2)
+	fmt.Println("Ähnliche Wörter:")
+
+	for _, word := range results {
+		fmt.Println(word)
+		time.Sleep(200 * time.Millisecond) // Pause for 1 second
+	}
 
 }
 

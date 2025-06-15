@@ -4,7 +4,8 @@ import (
 	"strings"
 )
 
-func Iterative(string1 string, string2 string) (distance int, matrix [][]int) {
+func Iterative(string1 string, string2 string) int {
+	distance := 0
 
 	if len(string2) > len(string1) {
 		temp := string1
@@ -14,7 +15,7 @@ func Iterative(string1 string, string2 string) (distance int, matrix [][]int) {
 
 	if len(string2) == 0 {
 		distance = max(len(string1), len(string2))
-		return distance, nil
+		return distance
 	}
 
 	splitString1 := strings.Split(string1, "")
@@ -41,10 +42,10 @@ func Iterative(string1 string, string2 string) (distance int, matrix [][]int) {
 
 	if len(splitString2) == 0 {
 		distance = max(len(splitString1), len(splitString2))
-		return distance, nil
+		return distance
 	}
 
-	matrix = initMatrix(len(splitString1)+1, len(splitString2)+1)
+	matrix := initMatrix(len(splitString1)+1, len(splitString2)+1)
 
 	for i := 1; i <= len(splitString1); i++ {
 		for j := 1; j <= len(splitString2); j++ {
@@ -63,7 +64,7 @@ func Iterative(string1 string, string2 string) (distance int, matrix [][]int) {
 
 	distance = matrix[len(splitString1)][len(splitString2)]
 
-	return distance, matrix
+	return distance
 
 }
 

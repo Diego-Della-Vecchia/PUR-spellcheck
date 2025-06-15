@@ -13,7 +13,7 @@ func (tree *tree) Insert(node *Node) {
 	current := tree.Root
 
 	for {
-		distance, _ := lev.Iterative(current.Value, node.Value)
+		distance := lev.Iterative(current.Value, node.Value)
 		if distance == 0 {
 			// Node already exists, do not insert
 			return
