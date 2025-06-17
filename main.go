@@ -8,6 +8,7 @@ import (
 	"os/exec"
 	"runtime"
 	"spellcheck/trees"
+	"strings"
 	"time"
 )
 
@@ -48,6 +49,7 @@ func main() {
 		}
 		reader := bufio.NewReader(os.Stdin)
 		input, _ := reader.ReadString('\n')
+		input = strings.TrimSpace(input)
 		fmt.Println("Eingegebenes Wort:", input)
 		results := tree.Lookup(input, 2)
 		fmt.Println("Ähnliche Wörter:")
